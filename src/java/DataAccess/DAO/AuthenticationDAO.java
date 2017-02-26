@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataAccessDAO;
+package DataAccess.DAO;
 import DataAccess.Entity.Authentication;
 import java.math.BigInteger;
 import javax.persistence.EntityManager;
@@ -62,7 +62,7 @@ public class AuthenticationDAO {
         return authentication;
     }
 
-    public Authentication searchUserLogin(long email, String password) {
+    public Authentication searchUserLogin(String email, String password) {
            EntityManager em = emf1.createEntityManager();
            Authentication account = null;
            String peticion = "select a from Authentication a INNER JOIN User ON User.ID=a.IdUser where User.email = " + email + " AND a.password = '"+password+"'";
